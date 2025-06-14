@@ -1,5 +1,6 @@
 import {combineReducers} from "redux";
 import counterReducer from "../slicers/counterSlice";
+import {ReducerType} from "@reduxjs/toolkit";
 
 
 const rootReducer = combineReducers({
@@ -7,3 +8,5 @@ const rootReducer = combineReducers({
 
     //TODO - Add more reducers
 })
+
+export type RootReducer  = ReturnType<typeof rootReducer>
