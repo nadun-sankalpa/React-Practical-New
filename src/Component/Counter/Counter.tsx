@@ -1,10 +1,10 @@
 import {useReducer} from 'react';
 import './Counter.css';
 import { Message } from '../message/Message';
-import {counterSlice} from '../../slicers/counterSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { CounterState } from '../../store/Store';
+
 import {decrement, increment} from '../../Actions/CounterActions';
+import {RootState} from "../../store/store";
 //define the state of the component
 
 
@@ -16,8 +16,10 @@ export function Counter() {
     // const [state, dispatch] = useReducer(CounterSlice, {count: 0, error: null})
 
     const dispatch = useDispatch()
-    const count =useSelector((state: CounterState) => state.count);
-    const error = useSelector((state: CounterState) => state.error);
+    // const count =useSelector((state: CounterState) => state.count);
+    // const error = useSelector((state: CounterState) => state.error);
+
+    const {count, error} = useSelector((state: RootState) => state.counter)
 
 
     return (
