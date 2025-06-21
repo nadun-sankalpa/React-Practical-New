@@ -3,7 +3,7 @@ import counterReducer from "../slicers/counterSlice";
 import {ReducerType} from "@reduxjs/toolkit";
 
 
-const rootReducer = combineReducers({
+export const rootReducer = combineReducers({
     counter: counterReducer
 
     //TODO - Add more reducers

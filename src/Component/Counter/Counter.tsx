@@ -4,7 +4,8 @@ import { Message } from '../message/Message';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {decrement, increment} from '../../Actions/CounterActions';
-import {RootState} from "../../store/store";
+import {AppDispatch, RootState} from "../../store/Store";
+import {incrementAsync} from "../../slicers/counterSlice";
 //define the state of the component
 
 
@@ -15,7 +16,7 @@ type CounterProps = {
 export function Counter() {
     // const [state, dispatch] = useReducer(CounterSlice, {count: 0, error: null})
 
-    const dispatch = useDispatch()
+    const dispatch = useDispatch<AppDispatch>()
     // const count =useSelector((state: CounterState) => state.count);
     // const error = useSelector((state: CounterState) => state.error);
 
@@ -31,6 +32,7 @@ export function Counter() {
             <div>
                 <button className="btn" onClick={()=>dispatch(increment())}>+</button>
                 <button className="btn" onClick={()=>dispatch(decrement())}>-</button>
+                <button className="btn" onClick={()=>dispatch(incrementAsync(1))}>Async Add 1</button>
             </div>
             <Message />
         </div>
